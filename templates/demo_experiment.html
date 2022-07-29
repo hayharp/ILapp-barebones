@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Demo Iteration Experiment</title>
+    <script src="/static/tone/build/Tone.js"></script>
+    <script src="/static/jspsych/jspsych.js"></script>
+    <script src="/static/jspsych/plugins/jspsych-html-button-response.js"></script>
+    <script src="/static/jspsych/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="/static/jspsych/plugins/jspsych-midi-variable-slider.js"></script>
+    <script src="/static/jspsych/plugins/jspsych-midi-play.js"></script>
+    <script src="/static/jspsych/plugins/jspsych-survey-html-form.js"></script>
+    <script src="/static/jspsych/plugins/jspsych-survey-text.js"></script>
+    <script src="/static/jspsych/plugins/jspsych-survey-multi-choice.js"></script>
+    <script src="/static/data_man.js"></script>
+    <script src="/static/jspsych/scripts/demographic_surveys/demo.js"></script>
+    <link href="/static/jspsych/css/jspsych.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/survey.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript">
+      var metadata = '{{ data | tojson }}'
+    </script>
+    <script src="/static/demo.js"></script>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    var welcome = {
+        type: 'html-button-response',
+        stimulus: '<p>This experiment tests your perception and memory of tempo.</p>' +
+                  '<p>First, you will answer some basic demographic questions.</p>' +
+                  '<p>Then, you will complete the main block of the experiment which involves the tempo memory task.</p>' +
+                  '<p>Press "Continue" to begin.</p>',
+        choices: ['Continue']
+    };
+    var timeline = []
+    var starter = {
+      timeline: [welcome, demographics]
+    }
+    timeline.push(starter)
+    timeline.push(demo_il)
+    jsPsych.init({
+      timeline: timeline
+    })
+  </script>
+</html>
