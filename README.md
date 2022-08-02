@@ -44,6 +44,10 @@ CTRL+C exits the server.
 
 Lastly, make sure your venv (and project, and vscode) directory is in .gitignore, to avoid conflicting venvs getting pushed to GitHub.
 
+## Running a Demo Experiment
+
+After the Flask server is running, the link `localhost:5000/demo` will run a demo experiment. The demo is three trials long, and demonstrates data iteration methods after the fifth time the link is accessed (split size is 2, gen size is 4). Results can be found in the `results/demo` directory.
+
 ## Deployment Checklist
 
 1. Ensure that requirements.txt is up to date
